@@ -1,0 +1,229 @@
+<!-- order 订单 页 -->
+<div ng-include="'tpl/footer.html'"></div>
+<div>
+    <div id="header">
+        <div class="header-text" style="margin-left:20px;width:90%;">
+            <h4 class="text-center">确认订单</h4>
+        </div>
+        <a href="javascript:history.back(-1);" class="glyphicon glyphicon-chevron-left pull-left"
+            style="margin-top: -35px;font-size: 20px;color:#fff;"></a>
+        <div class="cart-address">
+            <div class="address-item">
+                <!-- 没取到值是string 当前的p 在是string 的时候显示， 或者 在不是对象的时候才显示-->
+                <a href="#/addr/{{aaa}}" ng-if="!(address | isTypeArray)"
+                    style="color:#fff;font-size:25px;font-weight:bold;">
+                    {{address}}
+                    <span class="glyphicon glyphicon-chevron-right" style="margin-right: 7px;"></span>
+                </a>
+                <!-- 取到值是object 当前的p 在是对象 的时候显示， 或者 在不是字符串的时候才显示-->
+                <a href="#/addr/{{aaa}}" ng-if="address | isTypeArray"
+                    ng-repeat="addr in address | filter:{'defaultAddr':1}">
+                    <p style="color: hsla(0,0%,100%,.8);margin:0;">订单配送至
+                        <span style="padding-left:10px;">{{addr.label}}</span>
+                    </p>
+                    <div style="width: 89%;float: left;">
+                        <p style="color:#fff;font-size:25px;font-weight:bold;margin:0;">
+                            {{addr.name}}
+                            <span style="font-size:20px;">{{addr.address}}</span>
+                        </p>
+                        <p style="color:#fff;font-size:18px;margin:0;">
+                            {{addr.tel}}
+                            <span style="font-size:16px;">{{addr.Doorplate}}</span>
+                        </p>
+                    </div>
+                    <span class="glyphicon glyphicon-chevron-right"
+                        style="margin-right:7px;color:#fff;margin-top:21px;font-size:20px;"></span>
+                </a>
+            </div>
+        </div>
+        <div class="checkout-section key-card">
+            <div class="delivery when">
+                <div class="delivery-left">
+                    <div class="delivery-time">
+                        <span class="cart-item__title">送达时间</span>
+                    </div>
+                    <div class="delivery-extra">
+                        <span class="fengniao">蜂鸟专送</span>
+                    </div>
+                </div>
+                <div class="right pull-right ">
+                    <div class="delivery-select">
+                        <span class="song">{{payTimer | date: 'HH:mm'}}</span> 送达&gt;&gt;
+                    </div>
+                </div>
+            </div>
+            <div class="Time" style="display: none;"></div>
+            <div class="ms" style="display: none;">
+                <h4 class="text-center">选择送达时间</h4>
+                <ol class="left nav nav-tabs" role="tablist">
+                    <li ng-repeat="k in week" role="presentation" ng-class="{active:k==0}" ng-hide="k==0 && timeTrue">
+                        <a href="#day{{k}}" aria-controls="day{{k}}" role="tab" data-toggle="tab"
+                            ng-click="dropDownTabs(ev,k)">
+                            {{k | setWeek}}
+                        </a>
+                    </li>
+                </ol>
+                <div style="height:100%;width:70%;float:right;background:#fff;" class="tab-content">
+                    <ul ng-repeat="j in week" ng-class="{'right':true,'active':j==0}" id="day{{j}}">
+                        <li ng-repeat="i in roundTime" ng-click="getPayTime()"
+                            ng-hide="(openShop | setMilliSecond :j:i*10*60*1000) < contrastTime"
+                            ng-hide="j==0 && timeTrue">
+                            <span ng-click="HHmm()">
+                                {{j | setWeek}}
+                                {{openShop | setPayTime : j : i*10*60*1000 | date:"HH:mm"}}
+                            </span>
+                            <span>配送费3元</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cart-item pay-way">
+                <div class="cart-item__title pull-left">支付方式</div>
+                <div class="pull-right">
+                    <span class="pay-text zai">{{zxzf}}</span>
+                </div>
+                <div class="ding">
+                    <div class="in">
+                        <div class="for">
+                            <h4 class="text-center pull-left">请选择支付方式</h4>
+                            <span class="pull-right cha">X</span>
+                        </div>
+                        <ul class="uull">
+                            <li ng-click="zfb()">
+                                <img src="images/zfb.png" alt="">
+                                <span style="margin-left:10%;">
+                                    {{a}}
+                                </span>
+                                <input type="checkbox" class="pull-right qian1">
+                            </li>
+                            <li ng-click="wx()">
+                                <img src="images/wx.png" alt="">
+                                <span style="margin-left:10%;">
+                                    {{b}}
+                                </span>
+                                <input type="checkbox" class="pull-right qian2">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h4>
+                <span>{{aaa}}</span>
+            </h4>
+            <hr>
+            <ul class="topUl">
+                <li ng-repeat="i in bbb" style="width:309px;height:50px;">
+                    <img ng-src="images/{{i.img_sm}}" alt="图片" class="pull-left" width="40px;">
+                    <p class="pull-left" style="padding-left:10px;width:100px;">{{i.name}}</p>
+                    <span class="pull-left" style="padding-left:40px;">x<em>{{i.num}}</em></span>
+                    <span class="pull-right">￥<em>{{i.price}}</em></span>
+                </li>
+            </ul>
+            <ul class="bottomUl">
+                <li class="li1">
+                    <i class="pull-left">包装</i>
+                    <span class="pull-left left">餐盒</span>
+                    <span class="pull-right">
+                        x<em>1</em>
+                    </span>
+                </li>
+                <li class="li2">
+                    <i class="pull-left">蜂鸟</i>
+                    <span class="pull-left left">配送费</span>
+                    <span class="pull-right">
+                        ￥<em>3</em>
+                    </span>
+                </li>
+                <li class="li3">
+                    <span class="pull-left" style="color:#999;">
+                        请前往App下单以享受优惠
+                    </span>
+                </li>
+                <li class="li4">
+                    <span class="pull-left">红包</span>
+                    <span class="pull-right">请前往App下单以享受优惠|请前往App下单以...</span>
+                </li>
+                <li class="li5">
+                    <span class="pull-left">优惠说明</span>
+                    <span class="pull-right">小计￥
+                        <em>{{ccc*1+3}}</em>
+                    </span>
+                </li>
+            </ul>
+            <ul class="UL">
+                <li class="li1">
+                    <span class="pull-left">餐具份数</span>
+                    <span class="pull-right">未选择
+                        &gt;
+                    </span>
+                    <em class="pull-right" style="clear:both;color:green;">选无需餐具，马上助力环保</em>
+                </li>
+                <p data-toggle="modal" data-target="#myModal2"
+                    style="border-bottom:1px solid #eeeeee;font-size: 15px;font-weight:bolder;margin:0;padding:10px 0;">
+                    订单备份
+                    <span class="pull-right" style="color:#ccc;font-size:12px;">{{remerks}}&gt;</span>
+                </p>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span style="font-size:15px;" aria-hidden="true">完成</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel2">订单备份</h4>
+                            </div>
+                            <div class="modal-body back">
+                                <textarea cols="42" rows="12" placeholder="填写额外对商家和骑手的备注信息" style="color: #999;"
+                                    id="textarea">{{remerks}}</textarea>
+                                <div class="but">
+                                    <p style="margin:14px 0;color:#999999;">
+                                        快捷输入
+                                    </p>
+                                    <input type="button" value="{{l}}" ng-repeat="l in backu" ng-click="bac(l)" style="width: 55px;border:1px solid #000;outline: none;background: #fff;margin-left:5px;margin-top:5px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <li class="li3">
+                    <span class="pull-left ">发票信息</span>
+                    <span class="pull-right">不需要开发票
+                        &gt;
+                    </span>
+                </li>
+                <li class="li4">
+                    <span class="pull-left ">号码保护</span>
+                    <span class="pull-left left" style="clear:both;">号码保护中，将对商家、骑手隐藏您的真实手机号</span>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-fixed-bottom">
+            <div class="pull-left">
+                ￥<span>{{ccc*1+3}}</span>
+            </div>
+            <div class="pull-right" ng-click="pay()">
+                去支付
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cart-item").on("click", function () {
+        $(".ding").css("display", "block");
+    })
+    $(".cha").on("click", function () {
+        $(".ding").fadeOut();
+    })
+
+    $(".when").on("click", function () {
+        $(".Time").css("display", "block");
+        $(".ms").css("display", "block");
+    })
+    $(".Time").on("click", function () {
+        $(".Time").fadeOut();
+        $(".ms").fadeOut();
+    })
+</script>

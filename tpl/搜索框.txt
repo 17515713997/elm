@@ -1,0 +1,79 @@
+1、storeShopMain.html页面的添加购物车
+2、main页面的关键字搜索
+
+关键字 
+    面
+        饺子--面
+        卖饺子的面馆
+
+
+    菜品名字  
+        storeShopList  店铺名  店铺id 
+        emel_list      店铺id  
+
+left join级联--关联
+    把多个表关联在一起 
+        on 后边可以指定关联表的条件 
+
+
+    数据库查询中as的意思
+        转换
+        例如：
+           emel_list as list   把emel_list表名 简化成 list
+
+
+查询数据
+select store.shopName,list,sid,list.shopid,dish.shop_img,list.img_sm
+
+去哪个表 as -- 转换名字
+from  elem_dish as dish
+
+LEFT JOIN store AS list ON list.shopid = dish.shopid
+
+ //级联的表是谁？  on  级联的条件是什么
+form elem_dish as list
+
+条件
+where elem_dish.name like '%kw%'
+
+
+
+SELECT 字段 表1 LEFT JOIN 表2 ON 表2字段=表1字段 WHERE 条件1 = "?" AND 条件2 = "?"
+
+
+
+SELECT list.shopName,dish.sid,list.shopid,list.shop_img,dish.img_sm,dish.name
+FROM  elem_dish AS dish
+LEFT JOIN store AS list ON list.shopid = dish.shopid
+WHERE dish.name LIKE '%米%'
+
+
+
+创建购物车数据库
+        取结算 -- 存购物车 shopCarList 当成json字符串传进去
+
+    did     主键自增
+    uid     用户名
+    sid     商品编号  ---   自动生成一个编号  生成12位数字的编号
+    mun     商品数量  ---   商品总数量 allNum
+    price   商品价格  ---   总价格  money
+
+    
+    订单详情:   angular.toJson(shopCarList)
+    下单时间:
+    配送时间:
+    配送费:
+    餐具份数:
+    配送电话:
+    配送地址:
+    姓名:
+    性别:
+    备注:
+    支付状态:   未支付、已支付
+    订单状态:   未送达、已送达
+
+    打印订单时间:   下单时间 - 2分钟
+
+
+
+

@@ -1,0 +1,106 @@
+仿 饿了么 项目制作
+    入口页面：
+        index.html 
+            打开入口页面---默认加载strat.html
+        //入口页面 ---> 引入文件的页面
+
+    开始页面---开始界面---加载界面：
+        start.html
+            页面加载动画。10秒后跳转  main.html
+
+    首页面菜单页：
+        main.html
+            1、登录 -- login.html
+
+    登录：
+        login.html
+            1、直接登录
+                1.1 手机号登录  phone_login.html
+                    --验证码
+                1.2 账号密码登录    user_login.html
+                    --
+                1.3 店铺登录    shopUser_login.html
+                    --            
+            2、没有账号
+                点击注册 -- 跳转  register.html
+    注册页面： 
+        register.html
+                user_register.html 代码片段
+            1、user_register   /  user_login
+                1.1 用户编号 -- uid     自动生成
+                1.2 用户名   -- userName    必填项
+                1.3 密码     -- pwd         必填项
+                1.4 电话号  --  tel          选填项
+                1.5 身份证明 -- id           必填项
+                1.6 邮箱    -- email         选填项
+                1.7 性别    -- sex男士or女士     选填项
+                phone_register.html 代码片段
+            2、phone_register  /  phone_login
+                2.1 用户编号   uid          自动生成
+                2.2 电话       phone        必填项
+                2.3 用户名     userName     选填项/不填写则自动生成
+                        可以使用phone当用户名 自动前面添加一个字母
+                2.4 身份证明 -- id           必填项
+                2.5 邮箱    -- email         选填项
+                2.6 性别    -- sex男士or女生     选填项 
+
+                注册：
+                    用户注册：
+                        确定用户唯一。
+                        手机号唯一。
+                    手机注册
+                        手机号唯一。
+                        手动填写的用户名 -- 需要验证
+                    共同：id唯一
+                        
+                    注册完毕 --- 注册成功/失败
+                        成功 -- 
+                            自动登录 -- 5秒跳转 main.html
+                            5秒后跳转到登录页 
+                        失败 -- 返回 -- 回到注册的页面
+                shopUser_register.html 代码片段
+            3、shopUser_register    /  shopUser_login店铺注册
+                3.1 用户编号    自动生成
+                3.2 法人名字    必填项
+                3.3 营业执照    必填项
+                3.4 卫生许可    必填项
+                3.5 详细地址    必填项
+                3.6 身份证明    选填项
+                3.7 电话        必填项
+            店铺登录成功 ---- 店铺页面
+                添加菜品
+                    菜品名字
+                    菜品图片
+                    菜品原料
+                    菜品价格
+                    规格： 微辣 中辣 特辣 
+                    菜品评价
+                修改菜品
+                    修改图片
+                    修改名称
+                    修改价格
+                    修改原料
+                    修改规格
+                已结订单
+                已完成订单
+    
+    店铺：
+        shopUser.html
+    菜单页面：
+        main.html
+    详情页面：
+        details.html
+    购物车页面：
+        shopCar.html
+    订单页面---支付页面：
+        order.html
+    支付完成页面
+
+    我的订单
+        myOrder.html
+
+
+jquery --- 链接外部的代码片段
+    jq引入的代码片段中 需要把css文件引入
+
+angular -- ng-include

@@ -1,0 +1,23 @@
+<!-- 头部信息 -->
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#elemCollapse">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+            <a href="#/m" class="navbar-brand">elem</a>
+            <a href="#/e" class="pull-right navbar-brand visible-xs-block toppot"  ng-if="!USER">注册</a>
+            <a href="#/login" class="pull-right navbar-brand visible-xs-block toppot" ng-if="!USER">登录</a>
+            <a href="javascript:;" class="pull-right navbar-brand  toppot" ng-if="USER">欢迎{{USER}}登录</a>
+        </div>
+        <div id="elemCollapse" class="collapse navbar-collapse text-center navbar-right">
+            <ul class="nav navbar-nav">
+                <li class="hidden-xs" ng-if="!USER"><a href="#/login">登录</a></li>
+                <li class="hidden-xs" ng-if="!USER"><a href="#/e">注册</a></li>
+                <li><a href="#/s">HOME</a></li>
+                <li><a href="Javascript:;">个人中心</a></li>
+                <li><a href="#/m">主菜单</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

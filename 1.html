@@ -1,0 +1,49 @@
+<!-- App入口页面 -->
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/Normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="bootstrap-3.3.7-dist/js/jquery.min.js"></script>
+    <title>饿了么</title>
+    <link rel="icon" href="images/1.png" type="image/png" sizes="96x96">
+    <style>
+        #shopList .media-left {
+            width: 10%;
+        }
+        .shopAdd.dropup {
+            background-color: rgba(0, 0, 0, .9);
+            color: #fff;
+            height: 50px;
+            line-height: 50px;
+        }
+        .shopAdd.dropup .pull-left {
+            min-width: 60%;
+            max-width: 75%;
+        }
+        .shopAdd.dropup .pull-right {
+            width: auto;
+            min-width: 25%;
+            padding: 0 10px;
+            text-align: center;
+            border: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body ng-controller="parentCtrl" ng-cloak>
+    <div class="container">
+        <div ng-view>
+
+        </div>
+    </div>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="angular-1.5.8/angular.min.js"></script>
+    <script src="angular-1.5.8/angular-animate.min.js"></script>
+    <script src="angular-1.5.8/angular-route.min.js"></script>
+    <script src="js/myAppIndex.js"></script>
+</body>
+</html>

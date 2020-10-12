@@ -1,0 +1,231 @@
+<!-- main 首页面菜单页 -->
+<div ng-include="'tpl/header.html'"></div>
+<div ng-include="'tpl/footer.html'"></div>
+<!--
+        该div标签在1.HTML文件中打开的，所以我们要引入的header.html是在1.html进行访问 
+        该header.html文件的路径 就应该为 "tpl/header.html"
+    -->
+<div>
+    <form action="" style="padding-top: 90px;">
+        <div class="form-group has-feedback">
+            <label for="keywords" class="sr-only">搜索关键字</label>
+            <input type="text" class="form-control" placeholder="搜索饿了么商家，商品名称" name="kw" id="keywords" ng-model="kw" >
+            <span class="form-control-feedback glyphicon glyphicon-search"></span>
+            {{kw}}
+        </div>
+        <div class="form-group">
+            <label for="keywords" class="sr-only">搜索关键字</label>
+            <input type="button" class="form-control" id="keywords" value="搜索" ng-click="jump('/kw')">
+        </div>
+    </form>
+
+    <div class="container" style="margin-left: -15px;">
+        <div id="myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="images/lbt1.jpg" alt="" style="width:1140px;">
+                </div>
+                <div class="item">
+                    <img src="images/lbt2.jpg" alt="" style="width:1140px;">
+                </div>
+                <div class="item">
+                    <img src="images/lbt3.jpg" alt="" style="width:1140px;">
+                </div>
+                <div class="item">
+                    <img src="images/lbt4.jpg" alt="" style="width:1140px;">
+                </div>
+                <div class="item">
+                    <img src="images/lbt5.jpg" alt="" style="width:1140px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#myCarousel").carousel({
+                cycle: true,
+                interval: 2000
+            });
+        })
+    </script>
+    <div class="mint-swipe foodentry">
+        <div class="mint-swipe-items-wrap">
+            <ol class="carousel-indicators a1">
+                <li class="li1"></li>
+                <li class="li2"></li>
+            </ol>
+            <div class="mint-swipe-item is-active carousel-inner">
+                <div class="div1">
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="1" ubt-data-title="美食" class="container cont">
+                            <img src="images/sy.webp">
+                        </div>
+                        <span class="title">美食</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="2" ubt-data-title="大牌惠吃" class="container cont">
+                            <img src="images/sy1.webp">
+                        </div>
+                        <span class="title">大牌惠吃</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="3" ubt-data-title="商超便利" class="container cont">
+                            <img src="images/sy2.webp">
+                        </div>
+                        <span class="title">商超便利</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="4" ubt-data-title="水果" class="container cont">
+                            <img src="images/sy3.webp">
+                        </div>
+                        <span class="title">水果</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="5" ubt-data-title="医药健康" class="container cont">
+                            <img src="images/sy4.webp">
+                        </div>
+                        <span class="title">医药健康</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="6" ubt-data-title="浪漫鲜花" class="container cont">
+                            <img src="images/sy5.webp">
+                        </div>
+                        <span class="title">浪漫鲜花</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="7" ubt-data-title="跑腿代购" class="container cont">
+                            <img src="images/sy6.webp">
+                        </div>
+                        <span class="title">跑腿代购</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="8" ubt-data-title="汉堡披萨" class="container cont">
+                            <img src="images/sy7.webp">
+                        </div>
+                        <span class="title">汉堡披萨</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="9" ubt-data-title="厨房生鲜" class="container cont">
+                            <img src="images/sy8.webp">
+                        </div>
+                        <span class="title">厨房生鲜</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="10" ubt-data-title="甜品饮品" class="container cont">
+                            <img src="images/sy9.webp">
+                        </div>
+                        <span class="title">甜品饮品</span>
+                    </a>
+                </div>
+                <div class="div2" style="display:none;">
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="11" ubt-data-title="甜品饮品" class="container cont">
+                            <img src="images/syy1.webp">
+                        </div>
+                        <span class="title">速食简餐</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="12" ubt-data-title="甜品饮品" class="container cont">
+                            <img src="images/syy2.webp">
+                        </div>
+                        <span class="title">地方小吃</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="13" ubt-data-title="甜品饮品" class="container cont">
+                            <img src="images/syy3.webp">
+                        </div>
+                        <span class="title">大牌惠吃</span>
+                    </a>
+                    <a href="javascript:" role="button">
+                        <div ubt-visit-key="14" ubt-data-title="甜品饮品" class="container cont">
+                            <img src="images/syy4.webp">
+                        </div>
+                        <span class="title">速食简餐</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".a1 .li1").on("click", function () {
+            $(".div1").css("display", "none");
+            $(".div2").css("display", "block");
+        })
+        $(".a1 .li2").on("click", function () {
+            $(".div1").css("display", "block");
+            $(".div2").css("display", "none");
+        })
+    </script>
+
+
+    <div id="shopList" style="width:100%;" ng-if="USER">
+        <!-- {{shopList}}  -->
+        <!--  店铺推荐商品-->
+        <div class="list-group">
+            <!-- 点击当前的a 会跳转到详情页面 -->
+            <a href="#/g/{{i.shopid}}" class="list-group-item" ng-repeat="i in shopList">
+                <div class="media">
+                    <div class="media-left">
+                        <img ng-src="images/{{i.shop_img}}" alt="这是一张图片" style="width:90px;">
+                    </div>
+                    <div class="media-body">
+                        <h3>店铺:<span>{{i.shopName}}</span></h3>
+                    </div>
+                </div>
+            </a>
+            <!-- 循环以后，重复的店铺都将出现页面中
+            需要对店铺进行取重项
+            通过自定义filter 把需要去掉的重复值 过滤
+            通过shopid进行过滤
+            -->
+            <a href="#/g/{{j.shopid}}" class="list-group-item" ng-repeat="j in kwList | irList:'shopid' ">
+                <!-- {{j}} -->
+                <div class="media">
+                    <div class="media-left">
+                        <img ng-src="images/{{j.shop_img}}" alt="图片" style="width:90px;">
+                    </div>
+                    <div class="media-body">
+                        <h3>店铺:<span>{{j.shopName}}</span></h3>
+                        <ul>
+                            <!-- 商品需要和店铺id匹配 -->
+                            <li ng-repeat="k in kwList" ng-if="k.shopid == j.shopid" style="list-style:none;" ng-click="jump('/g/{{j.shopid}}/#d{{k.sid}}')">
+                                <!---jump('/g/{{j.shopid}}#{{'d'+k.sid}}-->
+                                <!-- {{k}} -->
+                                <h4>{{k.name}}</h4>
+                                <img ng-src="images/{{k.img_sm}}" alt="图片" width="30%" >
+                                <p>{{k.price}}</p>      
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <p class="alert alert-danger text-center" ng-if="isNoList">
+            在搜【{{kw}}】这玩意头打烂。
+        </p>
+        <input type="button" value="点击加载更多" class="btn btn-danger btn-block" ng-click="loadMore()"
+            ng-disabled="isLoadMore" ng-if="isLoadMoreShow">
+        <div style="height:100px;">
+
+        </div>
+    </div>
+    <div style="padding-bottom:200px;" class="text-center" ng-if="!USER" >
+        <h3 style="margin-bottom:40px;">
+            正在加载附近商家...
+        </h3>
+        <span style="width:50%;display:block;float:left;font-size:30px;" ng-click="jump('/login')">
+            登录
+        </span>
+        <span style="width:50%;display:block;float:left;font-size:30px;" ng-click="jump('/k')">
+            注册
+        </span>
+        <!-- $_output["oid"] = mysqli_insert_id($_conn); -->
+    </div>
+</div>

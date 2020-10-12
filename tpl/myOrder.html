@@ -1,0 +1,76 @@
+<!-- 我的订单页 myOrder -->
+<div ng-include="'tpl/footer.html'"></div>
+<div id="myTop">
+    <div class="profile">
+        <div class="index pull-left">
+            <img src="images/spri.png" alt="" width="60px">
+        </div>
+        <div class="xfCcC pull-left">
+            <p class="profile-1_mtk">
+                <span ng-if="USER">{{USER}}</span>
+                <span ng-if="!USER" ng-click="jump('/login')">登录/注册</span>
+            </p>
+            <p class="profile-1UP72">
+                <span ng-if="USER">{{PHONE}}</span>
+                <span ng-if="!USER" ng-click="jump('/login')">登录后享受更多优惠</span>
+            </p>
+        </div>
+        <span class="glyphicon glyphicon-chevron-right pull-right" style="line-height:55px;" ng-if="!USER" ng-click="jump('/login')"></span>
+        <span class="glyphicon glyphicon-chevron-right pull-right" style="line-height:55px;" ng-click="quit()" ng-if="USER"></span>
+    </div>
+    <div class="index1">
+        <a href="javascript:;" style="border-right:1px solid #ddd">
+            <p >
+                <span style="color: rgb(255, 95, 62);font-size: 25px;
+                font-weight: bold;"ng-if="USER">9</span>
+                <span style="color: rgb(255, 95, 62);font-size: 25px;
+                font-weight: bold;"ng-if="!USER">0</span>
+                <span style="color: rgb(255, 95, 62);">个</span>
+            </p>
+            <p style="color:#000;">红包</p>
+        </a>
+        <a href="javascript:;">
+            <p>
+                <span style="color: rgb(106, 194, 11);font-size: 25px;
+                font-weight: bold;">0</span>
+                <span style="color: rgb(106, 194, 11);">个</span>
+            </p>
+            <p style="color:#000;">金币</p>
+        </a>
+    </div>
+    <div class="dizhi" ng-click="dizhi()">
+        <img src="images/dizhi.png" style="margin-top: -3px;">
+        <span style="margin-left:10px;">我的地址</span>
+        <span class="glyphicon glyphicon-chevron-right pull-right bbb"></span>
+    </div>
+    <ul class="ul">
+        <li style="border-bottom:1px solid #eee;">
+            <img src="images/jinbi.png">
+            <span style="margin-left:10px;">金币商城</span>
+            <span class="glyphicon glyphicon-chevron-right pull-right bbb"></span>
+        </li>
+        <li>
+            <img src="images/xianjin.png" style="margin-left: 1px;">
+            <span style="margin-left:10px;">分享拿20元现金</span>
+            <span class="glyphicon glyphicon-chevron-right pull-right bbb"></span>
+        </li>
+    </ul>
+    <ul class="ullu">
+        <li style="border-bottom:1px solid #eee;">
+            <img src="images/erji.png">
+            <span style="margin-left:10px;">我的客服</span>
+            <span class="glyphicon glyphicon-chevron-right pull-right bbb"></span>
+        </li>
+        <li style="border-bottom:1px solid #eee;">
+            <img src="images/elm.png" style="margin-left: 1px;">
+            <span style="margin-left:10px;">下载饿了么APP</span>
+            <span class="glyphicon glyphicon-chevron-right pull-right bbb"></span>
+        </li>
+        <li>
+            <img src="images/zhong.png" style="margin-left: 1px;">
+            <span style="margin-left:10px;">规则中心</span>
+            <span class="glyphicon glyphicon-chevron-right pull-right bbb"></span>
+        </li>
+    </ul>
+    <a href="javascript:;" class="yins">隐私政策</a>
+</div>

@@ -1,0 +1,52 @@
+<!-- 店铺注册页 shopUser_register -->
+<div>
+    <div ng-include="'tpl/loginHeader.html'"></div>
+    <h1 class="text-center">
+        注册页
+    </h1>
+    <div>
+        <form action="">
+            <div class="form-group">
+                <label for="nameId">
+                    用户编号:
+                </label>
+                <input type="text" ng-model="nameId" placeholder="请输入用户编号" id="nameId" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="user">
+                    法人名字:
+                </label>
+                <input type="text" ng-model="user" placeholder="请输入名字" id="user" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="shopUserBusiness">营业执照:</label>
+                <input type="file" ng-model="shopUserBusiness" id="shopUserBusiness">
+            </div>
+            <div class="form-group">
+                <label for="shopUserHealth">卫生许可:</label>
+                <input type="file" ng-model="shopUserHealth" id="shopUserHealth">
+            </div>
+            <div class="form-group">
+                <label for="site">
+                    详细地址:
+                </label>
+                <input type="text" ng-model="site" placeholder="详细地址" id="site" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="code">
+                    身份证明:
+                </label>
+                <input type="text" ng-model="code" placeholder="身份证明" id="code" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="phone">
+                    电话:
+                </label>
+                <input type="text" ng-model="phone" placeholder="电话" id="phone" class="form-control">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block">注册</button>
+            </div>
+        </form>
+    </div>
+</div>

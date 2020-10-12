@@ -1,0 +1,75 @@
+<!-- user_login 用户名登录页 -->
+<div>
+    <div ng-include="'tpl/loginHeader.html'"></div>
+    <div ng-include="'tpl/footer.html'"></div>
+    <h1 class="text-center">
+        用户登录
+    </h1>
+    <div>
+        <form action="" name="myForm" novalidate>
+            <div class="form-group" id="na_me">
+                <label for="userName"> 用户名:</label>
+                <input type="text" ng-model="user.userName" placeholder="请输入用户名" id="userName" class="form-control"
+                ng-change="b()" ng-minlength="2" ng-maxlength="16" name="userName" required>
+                {{user.userName}}
+                <p class="alert-danger" ng-if="myForm.userName.$error.required && myForm.userName.$touched">
+                    用户名不能为空
+                </p>
+                <p class="alert-danger"
+                    ng-if="(myForm.userName.$error.minlength || myForm.userName.$error.maxlength) && myForm.userName.$touched">
+                    用户名长度为2-16位
+                </p>
+                <p ng-class="{'alert-danger':!userUser,'alert-success':userUser}"
+                    ng-if="!myForm.userName.$error.required && !myForm.userName.$error.minlength && !myForm.userName.$error.maxlength">
+                    <span>{{www}}</span>
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="pwd">密码:</label>
+                <input type="password" ng-model="user.pwd" placeholder="请输入密码" id="pwd" class="form-control" name="pwd" ng-change="a()" ng-minlength="7" ng-maxlength="16" required >
+                {{user.pwd}}
+                <p class="alert-danger" ng-if="myForm.pwd.$error.required && myForm.pwd.$touched">
+                    密码不能为空
+                </p>
+                <p class="alert-danger"
+                    ng-if="(myForm.pwd.$error.minlength || myForm.pwd.$error.maxlength) && myForm.pwd.$touched">
+                    密码长度为7-16位
+                </p>
+                <p ng-class="{'alert-danger':!pwd,'alert-success':pwd}"
+                    ng-if="!myForm.pwd.$error.required && !myForm.pwd.$error.minlength && !myForm.pwd.$error.maxlength">
+                    <span>{{vvv}}</span>
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="regCode">验证码:</label>
+                <div class="form-control">
+                    <input type="text" ng-model="user.regCode" placeholder="请输入验证码" id="regCode">
+                    <a href="javascript:fun();">
+                        <img src="php/getVaildCode.php" alt="验证码图片" id="code">
+                    </a>
+                    <a href="javascript:fun();">看不清,换一张</a>
+                    {{user.regCode}}
+                    <!-- javascript:void(0); -->
+                </div>
+                <script>
+                    function fun() {
+                        $("#code").attr("src", "php/getVaildCode.php?id=" + Math.random());
+                        //jQuery书写方式
+                        //document.querySelector("#code").src="php/getVaildCode.php?id="+Math.random();
+                        //javascript书写方式
+                    }
+                </script>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block" ng-click="checkLogin()">
+                    登录
+                </button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <a href="#/k" class="pull-right marginTB10">立即注册</a>
+    </div>
+    <p>{{user2}}</p>
+    <p>{{user3}}</p>
+</div>

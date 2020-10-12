@@ -1,0 +1,70 @@
+<style>
+    .ul{
+        margin-top:55px;
+    }
+    .li{
+        border:1px solid #999;
+        float:left;
+        width:100%;
+        margin-top:10px;
+        text-align:center;
+    }
+    .addr{
+        float:left;
+        width: 100%;
+    }
+    
+</style>
+<!-- 头部信息 -->
+<div class="navbar navbar-default navbar-fixed-top" style="background:#2395ff;">
+    <div class="container">
+        <div class="navbar-header pull-left">
+            <a href="#/b/{{orderid}}" class="navbar-brand" style="margin-top:3px;color:#fff;">
+               <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="nav navbar-nav navbar-right"style="margin:0;">
+            <ul class="nav navbar-nav pull-right" >
+                <li>
+                    <a href="#/newAddr/{{orderid}}" style="color:#fff;font-size:18px;">新增地址</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<ul style="padding:0;" class="ul">
+    <!-- 显示所有的地址信息 -->
+    <!-- 不超距离的地址 -->
+    <li>
+        <h3 ng-if="!(allAddress | isTypeArray)" class="text-center" ng-click="newAddr()"
+            style="border:1px solid #000;padding:20px 0;margin-top:100px">
+            <span class="glyphicon glyphicon-plus"></span>
+            {{allAddress}}
+        </h3>
+    </li>
+    <li ng-repeat="addr in allAddress" ng-if="allAddress | isTypeArray" class="li">
+        <div class="addr" ng-click="defaultAddr(addr)">
+            <span style="font-size:25px;">
+                {{addr.name}}
+            </span>
+            <span style="font-size:20px;">
+                {{addr.tel}}
+            </span>
+            <span style="font-size:14px;">
+                {{addr.label}}
+            </span>
+            <br>
+            <span style="font-size:18px;">
+                {{addr.address}}
+            </span>
+            <br>
+            <span style="font-size:16px;">
+                {{addr.Doorplate}}
+            </span>
+        </div>
+        <button ng-click="upDateAddr(addr)" >
+            修改地址
+        </button>
+    </li>
+    <!-- 出超距离的地址 -->
+</ul>

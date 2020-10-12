@@ -1,0 +1,109 @@
+<div ng-include="'tpl/footer.html'"></div>
+<div id="blue">
+    <div class="top container">
+        <div class="left">
+            <span class="glyphicon glyphicon-chevron-left" ng-click="ding()"></span>
+            <h3>订单详情</h3>
+            <img src="images/erji1.png" alt="">
+        </div>
+        <div class="dan">
+            <div class="qu">
+                订单已取消
+            </div>
+            <div class="chao">
+                <span>订单超时未支付</span>
+                <p> 超过15分钟未支付，订单已自动取消</p>
+                <div ng-click="tiao()">
+                    再来一单
+                </div>
+            </div>
+        </div>
+        <!-- <div class="dan" ng-if="ii.orderState === '3' ">
+            <div class="qu" >
+                订单已完成
+            </div> 
+            <div class="chao">
+                <span>感谢您的支持。欢迎下次光临！</span>
+            </div>
+        </div> -->
+        <div class="bj">
+            <img src="images/yi.png" alt="">
+        </div>
+        <ul class="ul">
+            <li>
+                <span class="pull-left" style="font-size:18px;font-weight:bold;">{{shop.shopName}}</span>
+                <span class="pull-right" ng-click="tiao()"
+                    style="text-align: center; padding: 5px;border: 1px solid #f5f5f5;color: #17a9f2;">再来一单</span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 30px;"></span>
+            <li ng-repeat="i in fff">
+                <img ng-src="images/{{i.img_sm}}" style="width:30px;" class="pull-left">
+                <span class="pull-left text-center" style="width:90px;">{{i.name}}</span>
+                <span class="pull-left text-right" style="width:82px;">x{{i.num}}</span>
+                <span class="pull-right text-right" style="width:82px;">￥{{i.price}}</span>
+            </li>
+            <li>
+                <span class="pull-left"><em
+                        style="font-size:12px;margin-right:5px;border: 1px solid #aaa;background:#ddd;">包装盒</em>餐盒</span>
+                <span class="pull-right">x1</span>
+            </li>
+            <li>
+                <span class="pull-left"><em
+                        style="font-size:12px;margin-right:5px;border: 1px solid #aaa;background:#ddd;">配送费</em>蜂鸟配送</span>
+                <span class="pull-right">￥3</span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 10px;"></span>
+            <li style="padding-bottom: 38px;">
+                <span class="pull-left" style="color:#17a9f2;"><img src="./images/images/tu_03.gif"
+                        style="margin-top:-2px;">联系商家</span>
+                <span class="pull-right">实付￥<em style="font-size:18px;">{{shop.price*1+3}}</em></span>
+            </li>
+        </ul>
+        <ul class="lu">
+            <li>
+                <span class="pull-left" style="font-weight:bold;">配送信息</span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 15px;"></span>
+            <li>
+                <span class="pull-left">送达时间</span>
+                <span class="pull-right">尽快送达</span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 15px;"></span>
+            <li>
+                <span class="pull-left">送货地址</span>
+                <span class="pull-right" style="width: 141px;margin-top: -19px;">
+                    {{shop.DeliveryAddr}}
+                    {{shop.uid}}
+                    {{shop.Deliveryphone}}
+                </span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 15px;"></span>
+            <li style="padding-bottom: 38px;">
+                <span class="pull-left">配送方式</span>
+                <span class="pull-right">蜂鸟配送</span>
+            </li>
+        </ul>
+        <ul class="ullu" style="margin-bottom: 70px;">
+            <li>
+                <span class="pull-left" style="font-weight:bold;">订单信息</span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 15px;"></span>
+            <li>
+                <span class="pull-left">订单号</span>
+                <span class="pull-right">{{shop.orderid}}
+                    <em style="font-size:16px;color:#17a9f2;border:1px solid #aaa;padding: 5px;"  >复制</em>
+                </span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 15px;"></span>
+            <li>
+                <span class="pull-left">支付方式</span>
+                <span class="pull-right">在线支付</span>
+            </li>
+            <span style="border-bottom:1px solid #f5f5f5;width: 100%;display: block;margin-top: 15px;"></span>
+            <li style="padding-bottom: 38px;">
+                <span class="pull-left">下单时间</span>
+                <span class="pull-right">{{shop.orderTime | date :"HH:mm"}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

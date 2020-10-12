@@ -1,0 +1,73 @@
+<!-- 添加新的地址页面 -->
+<div ng-include="'tpl/footer.html'"></div>
+<div id="addr">
+    <div class="top">
+        <a href="javascript:history.back(-1)" class="pull-left">
+            <span class="glyphicon glyphicon-chevron-left" style="color:#fff;margin-top:9px;padding-left:15px;"></span>
+        </a>
+        <h3 class="text-center" style="width: 84%;
+        float: left;">添加地址</h3>
+        <span class="pull-right" style="color:#fff;margin-top:9px;" ng-if="orderid.length > 18" ng-click="Delete()">删除</span>
+    </div>
+    <div class="divForm">
+        <ul class="addUl">
+            <li class="li1 form-group">
+                <label class="pull-left left">联系人</label>
+                <input type="text" class="pull-left input" placeholder="姓名" ng-model="comment.name" name="name" >
+            </li>
+            <li class="sex form-group">
+                <label for="man" ng-class="{'btn btn-default':true,active:comment.sex==1}">
+                    <input type="radio" name="sex" class="hidden" ng-model="comment.sex" value="1" id="man">
+                    先生
+                </label>
+                <label for="woman" ng-class="{'btn btn-default':true,active:comment.sex==0}">
+                    <input type="radio" name="sex" class="hidden" ng-model="comment.sex" value="0" id="woman">
+                    女士
+                </label>
+                {{comment.sex}}
+            </li>
+            <li class="li2 form-group">
+                <label class="pull-left left">电话</label>
+                <input type="text" class="pull-left input" placeholder="手机号码" ng-model="comment.tel" name="tel"
+                    ng-change="tel()">
+            </li>
+            <li class="li3 form-group">
+                <label class="pull-left left">地址</label>
+                <div class="pull-left input">
+                    <select ng-model="provincesIndex" ng-options="j.province as j.province for j in provinces">
+                    </select>
+                    <select ng-model="citiesIndex" ng-disabled="!cities" ng-options="i.city as i.city for i in  cities">
+                    </select>
+                    <select ng-model="areasIndex" ng-disabled="!areas" ng-options="k.area as k.area for k in areas">
+                    </select>
+                </div>
+            </li>
+            <li class="li4 form-group">
+                <label class="pull-left left">门牌号</label>
+                <input type="text" class="pull-left input" placeholder="例如:10楼5层210室1314" ng-model="comment.doorplate"
+                    name="doorplate">
+                <span class="pull-right glyphicon glyphicon-edit"></span>
+            </li>
+            <li class="li5 form-group">
+                <span class="pull-left left">标签</span>
+                <div class="pull-left" ng-model="comment.label">
+                    <label for="jia" ng-class="{'btn btn-default':true,active:comment.label=='家'}">
+                        <input type="radio" name="label" class="hidden" ng-model="comment.label" value="家" id="jia">
+                        家
+                    </label>
+                    <label for="xue" ng-class="{'btn btn-default':true,active:comment.label=='学校'}">
+                        <input type="radio" name="label" class="hidden" ng-model="comment.label" value="学校" id="xue">
+                        学校
+                    </label>
+                    <label for="shi" ng-class="{'btn btn-default':true,active:comment.label=='公司'}">
+                        <input type="radio" name="label" class="hidden" ng-model="comment.label" value="公司" id="shi">
+                        公司
+                    </label>
+                    {{comment.label}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <a href="javascript:;" class="bg" ng-click="addAddrBtn()" ng-if="orderid.length <= 18">保存并使用</a>
+    <a href="javascript:;" class="bg" ng-click="Ensure()" ng-if="orderid.length > 18">确定</a>
+</div>

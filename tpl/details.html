@@ -1,0 +1,28 @@
+<!-- 详情页 -->
+<div ng-include="'tpl/header.html'"></div>
+<div ng-include="'tpl/footer.html'"></div>
+<div class="container">
+    <h1 class="text-center">菜品详情</h1>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="thumbnail">
+                <div class="col-sm-6 col-xs-12">
+                    <img ng-src="images/{{dish.img_lg}}" alt="这是一张图片" class="img-responsive">
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="caption">
+                        <h3>菜品名称</h3>
+                        <p>{{dish.name}}</p>
+                        <p>原料:<span>{{dish.material}}</span></p>
+                        <p>价格:<mark>{{dish.price}}</mark></p>
+                        <p>详情:<span>{{dish.detail}}</span></p>
+                        <p class="">
+                            <a href="#/b/{{dish.sid}}" class="btn btn-primary">我要下单</a>
+                            <button type="button" class="btn btn-info" ng-click="jump('/m')">我在看看</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

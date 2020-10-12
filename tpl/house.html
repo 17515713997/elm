@@ -1,0 +1,52 @@
+<div ng-include="'tpl/footer.html'"></div>
+<div class="text-center" ng-if="!USER">
+    <h1 style="margin-top:50px">
+        <a href="#/login" style="color:#aaa;border:1px solid #aaa;padding:10px 20px;">请先登录</a> 
+    </h1>
+</div>
+<div ng-if="USER" style="margin-bottom:80px;">
+    <a href="#/m" class="glyphicon glyphicon-chevron-left" style="margin-top:10px;"></a>
+    <div ng-if="data == ''" style="text-align:center;">
+        <img src="images/myorder.png" width="100%">
+        <p style="font-size:20px;">近三个月没有订单情况</p>    
+        <h4>赶紧去逛逛吧!!!!!!!</h4>
+    </div>
+    <div ng-repeat="p in data" id="orderP" style="border:1px solid #aaa;padding:20px 20px;" ng-if="!data == ''">
+        <div class="right">
+            <img ng-src="images/{{p.orderDetails[0].img_sm}}" alt="图片" class="img">
+            <div class="top">
+                <div class="text-right" style="margin-bottom:10px;height: 45px;">
+                    <span ng-if="p.orderState === '0' " ng-click="pay(p)">去支付</span>
+                    <span ng-if="p.orderState === '1' ">配送中</span>
+                    <span ng-if="p.orderState === '2' ">待评价</span>
+                    <span ng-if="p.orderState === '3' ">已完成</span>
+                    <span ng-if="p.orderState === '4' ">已取消</span>
+                    <span ng-if="p.orderState === '5' ">已取消</span>
+                    <div>
+                        <input type="button" value="确认收货" ng-if="p.orderState === '1'" ng-click="take(p)">
+                        <input type="button" value="去评价" ng-if="p.orderState === '2' " ng-click="comment(p)"/>
+                        <span ng-if="p.orderState === '4' " style="font-size:12px;">
+                            订单超时未支付
+                        </span>
+                        <span ng-if="p.orderState === '5' " style="font-size:12px;">
+                            您已手动取消订单
+                        </span>
+                    </div>
+                </div>
+                <span class="text-center">{{p.shopName}}</span>
+                <span class="pull-right" style="border:1px solid #aaa;padding:5px10px;" ng-click="go(p)" ng-if="p.orderState === '3' || p.orderState === '4' || p.orderState === '5'">再来一单</span>
+                <p>{{p.orderTime}}</p>
+            </div>
+            <div class="bottom">
+                <span class="span1" >{{p.orderDetails[0].name}}
+                    <!-- <em>&nbsp;&nbsp;  
+                        等{{p.num}}件
+                    </em> -->
+                </span>
+                <span class="span2">x{{p.num}}</span>
+                <span class="span3">￥{{p.price}}</span>
+            </div>
+        </div>
+        <p style="height:120px;"></p>
+    </div>
+</div>

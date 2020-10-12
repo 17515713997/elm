@@ -1,0 +1,55 @@
+<div ng-include="'tpl/header.html'"></div>
+<div ng-include="'tpl/footer.html'"></div>
+<form action="" style="margin-top:80px;">
+    <div class="form-group has-feedback">
+        <label for="keywords" class="sr-only">搜索关键字</label>
+        <input type="text" class="form-control" placeholder="搜索饿了么商家，商品名称" name="kw" id="keywords" ng-model="kw">
+        <span class="form-control-feedback glyphicon glyphicon-search"></span>
+        {{kw}}
+    </div>
+</form>
+<p class="alert alert-danger text-center" ng-if="isNoList">
+    在搜【{{kw}}】这玩意头打烂。
+</p>
+<div id="shopList" style="width:100%;">
+    <!-- {{shopList}}  -->
+    <!--  店铺推荐商品-->
+    <div class="list-group">
+        <!-- 点击当前的a 会跳转到详情页面 -->
+        <a href="#/g/{{i.shopid}}" class="list-group-item" ng-repeat="i in shopList">
+            <div class="media">
+                <div class="media-left">
+                    <img ng-src="images/{{i.shop_img}}" alt="这是一张图片" style="width:90px;">
+                </div>
+                <div class="media-body">
+                    <h3>店铺:<span>{{i.shopName}}</span></h3>
+                </div>
+            </div>
+        </a>
+        <a href="#/g/{{j.shopid}}" class="list-group-item" ng-repeat="j in kwList | irList:'shopid' ">
+            <!-- {{j}} -->
+            <div class="media">
+                <div class="media-left">
+                    <img src="images/{{j.shop_img}}" alt="图片" style="width:90px;">
+                </div>
+                <div class="media-body">
+                    <h3>店铺:<span>{{j.shopName}}</span></h3>
+                    <ul>
+                        <!-- 商品需要和店铺id匹配 -->
+                        <li ng-repeat="k in kwList" ng-if="k.shopid = j.shopid" style="list-style:none;">
+                            <!-- {{k}} -->
+                            <h4>{{k.name}}</h4>
+                            <img src="images/{{k.img_sm}}" alt="图片" width="30%" >
+                            <p>{{k.price}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </a>
+    </div>
+    <input type="button" value="点击加载更多" class="btn btn-danger btn-block" ng-click="loadMore()" ng-disabled="isLoadMore"
+        ng-if="isLoadMoreShow">
+    <div style="height:100px;">
+
+    </div>
+</div>

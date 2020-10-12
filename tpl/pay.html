@@ -1,0 +1,66 @@
+<div ng-include="'tpl/footer.html'"></div>
+<div id="pay">
+    <a class="glyphicon glyphicon-chevron-left pull-left" style="color:#fff;font-size:16px;margin-top:15px;margin-left:5px;" href="#/waitPay/{{orderid}}"></a>
+    <h3>在线支付</h3>
+</div>
+<div class="Date">
+    <p>支付剩余时间</p>
+    <span class="DaTe"></span>
+    <!-- <span>{{nn | date:"HH:mm:ss"}}</span> -->
+</div>
+<ul class="luul">
+    <li>
+        <span style="text-align:left;">{{shop.shopName}}</span>
+        <span style="text-align: right;color:#999;" id="span">详情</span>
+        <div id="div" style="display:none;">
+            <h2 class="text-center">{{shop.shopName}}</h2>
+            <h5 class="text-center" id="h3" style="margin-bottom: 50px;">订单详情</h5>
+            <div class="addr" style="margin-bottom: 150px;">
+                <span style="float:left;width:33%;">{{shop.uid}}</span>
+                <span style="float:left;width:80%;">{{shop.DeliveryAddr}}</span>
+                <span style="float:left;width:44%;">{{shop.Deliveryphone}}</span>
+            </div>
+            <div ng-repeat="h in fff" style="clear: both;">
+                <span class="pull-left"
+                    style="width:30%;text-align:right;height:40px;line-height:40px;">{{h.name}}</span>
+                <span class="pull-left"
+                    style="width:50%;text-align:left;height:40px;line-height:40px;margin-left:20px;">x{{h.num}}</span>
+            </div>
+            <h3 class="h3 navbar-fixed-bottom">
+                <span class="span">X</span>
+            </h3>
+        </div>
+        <span style="text-align: right;color:#ff6000;">
+            ￥<em>{{shop.price*1+3}}</em>
+        </span>
+    </li>
+</ul>
+<p style="background:#f5f5f5; padding:10px 0; margin-top:20px; color:#999;">其他支付</p>
+<ul class="uull">
+    <li ng-click="li1()">
+        <img src="images/zfb.png" alt="">
+        <span style="margin-left:10%;">
+            支付宝
+        </span>
+        <input type="checkbox" class="pull-right money1" checked>
+    </li>
+    <li ng-click="li2()">
+        <img src="images/wx.png" alt="">
+        <span style="margin-left:10%;">
+            微信支付
+        </span>
+        <input type="checkbox" class="pull-right money2">
+    </li>
+</ul>
+<a href="javascript:;" id="ababa" ng-click="fu()">确认支付</a>
+<script>
+    $("#span").on("click", function () {
+        $("#div").css("display", "block");
+    })
+    $(".h3").on("click", function () {
+        $("#div").css("display", "none");
+    })
+    $("#h3").on("click", function () {
+        $("#div").css("display", "none");
+    })
+</script>

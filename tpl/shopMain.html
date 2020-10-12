@@ -1,0 +1,303 @@
+<!-- shopMain 购物菜单 -->
+<!-- <div ng-include="'tpl/header.html'"></div> -->
+<div ng-include="'tpl/footer.html'"></div>
+<div style="padding-top:70px;" id="top">
+    <span class="glyphicon glyphicon-chevron-left" style="position:absolute;left:0;top:0;font-size:20px;margin-top:5px;margin-left:5px;z-index:10000;" ng-click="jump('/m')"></span>
+    <div id="bj">
+        <div style="position:absolute;left:0;top:0;z-index: -1;" class="shop">
+            <img src="images/{{shopping.img}}" width="100%">
+        </div>
+        <p class="text-center">
+            <img src="images/{{shopping.shop_img}}" alt="">
+        </p>
+        <p class="text-center" style="font-size:20px;font-weight: bold;">
+            【{{shopping.shopName}}】
+        </p>
+        <div class="divv">
+            <span>评价:<em>{{shopping.eva}}</em></span>
+            <span>月售<em>{{shopping.sell}}</em>单</span>
+            <span>{{shopping.give}}</span>
+        </div>
+        <div class="divv1">
+            <span>首单立减20</span>
+            <span>与满减同享</span>
+            <span>27减13</span>
+            <span>38减17</span>
+            <a href="javascript:;" class="aAa">
+                5个优惠
+                <span class="caret"></span>
+                <div class="navbar-fixed-bottom bottom" style="z-index: 10000;">
+                    <p class="cha">X</p>
+                    <h3>优惠活动</h3>
+                    <div class="div1">
+                        <span class="span">首单</span><em>饿了么新用户首单立减20元</em>
+                    </div>
+                    <div class="div2">
+                        <span>减慢</span><em>满27元减13元，满38元减17元，满48元减24元，满70元减35元</em>
+                    </div>
+                    <div class="div3">
+                        <span>新客</span><em>本店新客立减1元</em>
+                    </div>
+                    <div class="div4">
+                        <span>折扣</span><em>本店新客立减1元</em>
+                    </div>
+                    <div class="div5">
+                        <span>特价</span><em>特价商品1元起</em>
+                    </div>
+                </div>
+            </a>
+            <script>
+                $(".aAa").on("click", function () {
+                    $(".bottom").css("display", "block");
+                })
+                $(".cha").on("click", function () {
+                    $(".bottom").fadeOut();
+                })
+            </script>
+        </div>
+    </div>
+    <div class="text-center" style="padding-top:10px; color:#000;">
+        <span>公告:</span><em style="font-style: normal;">小伙伴们高峰用餐时间请提前下单哦，本店麻辣烫都是现点现煮急不得的哟！！！</em>
+    </div>
+
+    <div class="conrainer text-center xian" style="padding-top:20px;">
+        <ul class="row nav nav-tabs nav-tabs-justified" style="line-height:30px;">
+            <li class="col-xs-4 btn-default click1">
+                <p>点餐
+                    <i class="i1"></i>
+                </p>
+            </li>
+            <li class="col-xs-4 btn-default click2">
+                <p>
+                    评价
+                    <i class="i2" style="display:none;"></i>
+                </p>
+            </li>
+            <li class="col-xs-4 btn-default click3">
+                <p>
+                    商家
+                    <i class="i3" style="display:none;"></i>
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="list-group onclick1" style="padding-top:20px;">
+        <img src="images/han.webp" width="100%">
+        <p class="p">全国加盟热线17515713997</p>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <div class="navbar-box pull-left" id="collapse1" style="padding-top:10px;">
+                    <ul class="nav-stacked">
+                        <li class="active" ng-repeat="i in shopSort" id="active">
+                            <a href="javascript:;" data-target="#one">
+                                {{i.sortName}}
+                                <span class="badge alert-danger"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="shopList pull-right" id="shopList" style="padding-bottom:110px;">
+                    <ol class="section" ng-repeat="i in shopSort">
+                        <li class="" ng-repeat="j in shopList | filter:{'sortid':i.sortid}" id="{{'d'+j.sid}}">
+                            <!-- id="{{'d'+j.sid}}" -->
+                            <div class="a1">
+                                <img ng-src="images/{{j.img_sm}}" alt="这是一张图片">
+                            </div>
+                            <h3 class="a2">{{j.name}}</h3>
+                            <p class="a3">主要原料:{{j.material}}</p>
+                            <p class="a4">月售:{{j.yue}}</p>
+                            <p class="a5">好评率{{j.lv}}</p>
+                            <p class="a6">{{j.price | currency:"￥"}}</p>
+                            <div class="a7">
+                                <input type="button" value="-" ng-click="checkNum('-',j)" ng-disabled="j.num <= 0">
+                                <!--ng-if="j.num > 0"-->
+                                <input type="button" ng-model="j.num" value="{{j.num}}" disabled>
+                                <!--ng-if="j.num > 0"-->
+                                <input type="button" value="+" ng-click="checkNum('+',j)">
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="onclick2" style="display:none;padding-top:20px;">
+        评价评价评价评价评价评价评价评价评价评价评价评价
+    </div>
+
+    <div class="onclick3" style="display:none;padding-top:20px;">
+        <div data-v-53457f04="" class="shop-info">
+            <section data-v-53457f04="" class="section">
+                <img data-v-53457f04="" class="brand-story-1MTF_" src="images/he.webp">
+                <h3 data-v-53457f04="" class="brand-story-9BblR">一锅一煮·觅姐汤可以喝的麻辣烫</h3>
+                <p data-v-53457f04="" class="brand-story-3qXp4">最通俗的饮食，应该有着最精致的标准</p>
+            </section>
+            <section data-v-53457f04="" class="section">
+                <h3 class="section-title">配送信息</h3>
+                <div class="delivery-2eZxp">
+                    <div>
+                        <span>由蜂鸟快送提供配送，约29分钟送达，距离1.9km</span>
+                    </div>
+                    <div>配送费￥1.5</div>
+                </div>
+            </section>
+            <section data-v-53457f04="" class="section">
+                <h3 class="section-title">商家服务</h3>
+                <div class="activity-34NE9">
+                    <div class="activity-1hPHa activity-25cwN">
+                        <span class="mini-tag-1Lyw4 activity-N5WvH" style="border: 1px solid rgb(153, 153, 153);">赔
+                            <span class="activity-yP-9y mini-tag-1ezSQ" style="color: rgb(153, 153, 153);">赔
+                            </span>
+                        </span>
+                        <span class="activity-3dUjU">
+                            商家原因导致订单取消，赔付代金券
+                        </span>
+                    </div>
+                </div>
+            </section>
+            <section data-v-53457f04="" class="section album-3hu5e">
+                <h3 class="section-title">商家实景</h3>
+                <div class="album-3VrB9">
+                    <a href="javascript:;" style="width:100px;display:block;">
+                        <img src="images/menmian1.webp" width="100%">
+                        <span class="album-3mg0R">大堂(1张)</span>
+                    </a>
+                    <a href="javascript:;" style="width:100px;display:block;">
+                        <img src="images/menmian2.webp" width="100%">
+                        <span class="album-3mg0R">门面(1张)</span>
+                    </a>
+                </div>
+            </section>
+            <div data-v-53457f04="">
+                <section class="section">
+                    <h3 class="section-title">商家信息</h3>
+                    <ul class="detail-3mz9N">
+                        <li>
+                            觅姐麻辣烫老火精炖骨汤底，食材新鲜百余种，百吃不厌回味浓，博得佳人喜开颜！
+                        </li>
+                        <li>
+                            <span class="le">品类</span>
+                            <span class="ri">麻辣烫, 冒菜</span>
+                        </li>
+                        <li>
+                            <span class="le">商家电话</span>
+                            <span class="detail-2mw1q ri">
+                                <span>联系商家</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="le">地址</span>
+                            <span class="ri">北京市西城区大栅栏街18号1幢2层06</span>
+                        </li>
+                        <li>
+                            <span class="le">营业时间</span>
+                            <span class="ri">10:00-21:00</span>
+                        </li>
+                    </ul>
+                </section>
+                <section class="section">
+                    <a href="#" style="color:#666;font-size:14px;">
+                        营业资质
+                    </a>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".click1").on("click", function () {
+            $(".onclick1").css("display", "block");
+            $(".onclick2").css("display", "none");
+            $(".onclick3").css("display", "none");
+            $(".i1").css("display", "block");
+            $(".i2").css("display", "none");
+            $(".i3").css("display", "none");
+        })
+        $(".click2").on("click", function () {
+            $(".onclick1").css("display", "none");
+            $(".onclick2").css("display", "block");
+            $(".onclick3").css("display", "none");
+            $(".i1").css("display", "none");
+            $(".i2").css("display", "block");
+            $(".i3").css("display", "none");
+        })
+        $(".click3").on("click", function () {
+            $(".onclick1").css("display", "none");
+            $(".onclick2").css("display", "none");
+            $(".onclick3").css("display", "block");
+            $(".i1").css("display", "none");
+            $(".i2").css("display", "none");
+            $(".i3").css("display", "block");
+        })
+    </script>
+    <div class="dropup navbar-fixed-bottom shopAdd" ng-init="a='未选购商品';b='￥13元起送'" style="margin-bottom:62px;">
+        <div class="pull-left" id="dLbel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{allNum == 0 ? "未选购商品" : "已选购" + allNum + "件商品"}}
+        </div>
+        <!-- data-stopPropagation="true" 阻止默认的dropdown隐藏事件的传递 配合jquery语法使用  e.stopPropagation() -->
+        <ul class="dropdown-menu" aria-labelledby="dLbel" style="color:#000;" data-stopPropagation="true" onclick="">
+            <li ng-class="item.shopid" ng-repeat="item in shopCarList">
+                <h3 class="pull-left" style="font-weight:bold;">{{item.name}}</h3>
+                <p class="pull-left">{{item.price | currency :'￥'}}</p>
+                <p class="pull-right" style="line-height: 26px;margin-top: 8px;">
+                    <input type="button" value="-" ng-click="checkNum('-',item)" ng-disabled="item.num <= 0">
+                    <input type="button" ng-model="item.num" value="{{item.num}}" disabled>
+                    <input type="button" value="+" ng-click="checkNum('+',item)">
+                </p>
+            </li>
+        </ul>
+        <div class="pull-right">
+            <a href="javascript:;" style="background:rgb(102, 102, 102);
+            height:50px;color:#fff;" class="btn-block"  ng-if="money>13" ng-click="commentBtn()">
+                {{money | currency :'￥'}}
+            </a>
+            <!-- <span ng-if="money>38" ng-click="chao()">{{money}}</span> -->
+            <button type="button" style="outline:none;border:none;background: #666;
+            height: 50px;" class="btn-block" ng-if="money<13" ng-disabled="money < 13" >
+                {{money == 0 ? "￥13元起送" : "还差￥" + ((13-money) | currency) + "元起送"}}
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var top = $("#collapse1 ul").offset().top;
+        var top1 = $(".xian ul").offset().top;
+        window.onscroll = function () {
+            var obody = document.documentElement || document.body || document.querySelector("body");
+            var obody1 = document.documentElement || document.body || document.querySelector("body");
+            if (obody1.scrollTop > top1) {
+                $(".xian ul").css({
+                    "position": "fixed",
+                    "top": "0",
+                    "width": "100%"
+                })
+            } else {
+                $(".xian ul").css({
+                    "position": "static",
+                })
+            }
+            if (obody.scrollTop > top) {
+                $("#collapse1 ul").css({
+                    "position": "fixed",
+                    "top": "40px",
+                })
+            } else {
+                $("#collapse1 ul").css({
+                    "position": "static",
+                })
+            }
+        }
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown("toggle");
+        $("[data-stopPropagation]").on("click", function (e) {
+            e.stopPropagation();
+            // e.stopPropagation(); 阻止事件传播
+            //配合使用的 必须在需要阻止传播的HTML5 标记 添加 data-stopPropagation = "true"
+        })
+    })
+</script>
